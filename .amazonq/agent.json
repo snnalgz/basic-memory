@@ -27,7 +27,7 @@
     "@basic-memory/canvas",
     "@basic-memory/view_note",
     "@basic-memory/read_content",
-    "@basic_memory/sync_status",
+    "@basic-memory/sync_status",
     "@basic-memory/list_memory_projects",
     "@basic-memory/switch_project",
     "@basic-memory/get_current_project",
