@@ -1,0 +1,76 @@
+{
+  "name": "basic-memory-agent",
+  "description": "An agent for interacting with a local Basic Memory knowledge base. It allows you to create, read, update, delete, and search notes in your personal knowledge graph.",
+  "mcpServers": {
+    "basic-memory": {
+      "command": "uvx",
+      "args": [
+        "basic-memory",
+        "mcp"
+      ],
+      "timeout": 30000
+    }
+  },
+  "tools": [
+    "fs_read",
+    "fs_write",
+    "execute_bash",
+    "@basic-memory/write_note",
+    "@basic-memory/read_note",
+    "@basic-memory/edit_note",
+    "@basic-memory/delete_note",
+    "@basic-memory/search_notes",
+    "@basic-memory/move_note",
+    "@basic-memory/list_directory",
+    "@basic-memory/recent_activity",
+    "@basic-memory/build_context",
+    "@basic-memory/canvas",
+    "@basic-memory/view_note",
+    "@basic-memory/read_content",
+    "@basic_memory/sync_status",
+    "@basic-memory/list_memory_projects",
+    "@basic-memory/switch_project",
+    "@basic-memory/get_current_project",
+    "@basic-memory/set_default_project",
+    "@basic-memory/create_memory_project",
+    "@basic-memory/delete_project"
+  ],
+  "allowedTools": [
+    "fs_read",
+    "@basic-memory/read_note",
+    "@basic-memory/search_notes",
+    "@basic-memory/list_directory",
+    "@basic-memory/recent_activity",
+    "@basic-memory/build_context",
+    "@basic-memory/view_note",
+    "@basic-memory/read_content",
+    "@basic-memory/sync_status",
+    "@basic-memory/list_memory_projects",
+    "@basic-memory/get_current_project"
+  ],
+  "toolAliases": {
+    "@basic-memory/write_note": "write",
+    "@basic-memory/read_note": "read",
+    "@basic-memory/search_notes": "search",
+    "@basic-memory/edit_note": "edit",
+    "@basic-memory/delete_note": "delete",
+    "@basic-memory/move_note": "move",
+    "@basic-memory/list_directory": "ls",
+    "@basic-memory/recent_activity": "recent",
+    "@basic-memory/list_memory_projects": "list_projects",
+    "@basic-memory/create_memory_project": "create_project",
+    "@basic-memory/get_current_project": "current_project"
+  },
+  "resources": [
+    "file://README.md",
+    "file://docs/AI Assistant Guide.md"
+  ],
+  "hooks": {
+    "agentSpawn": [
+      {
+        "command": "uvx basic-memory mcp --version",
+        "timeout_ms": 10000
+      }
+    ]
+  }
+}
